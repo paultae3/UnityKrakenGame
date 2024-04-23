@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerControl : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-
     [SerializeField] float _moveSpeed = 12f;
     [SerializeField] float _turnSpeed = 3f;
 
@@ -28,7 +27,7 @@ public class PlayerControl : MonoBehaviour
 
         Vector3 moveDirection = transform.forward * moveAmountThisFrame;
 
-      
+
         _rb.AddForce(moveDirection);
 
         _rb.drag = 2;
@@ -39,15 +38,14 @@ public class PlayerControl : MonoBehaviour
 
     void TurnPlayer()
     {
-       
+
         float turnAmountThisFrame = Input.GetAxisRaw("Horizontal") * _turnSpeed;
 
-        
+
         Quaternion turnOffset = Quaternion.Euler(0, turnAmountThisFrame, 0);
 
-      
+
         _rb.MoveRotation(_rb.rotation * turnOffset);
 
     }
-
 }
