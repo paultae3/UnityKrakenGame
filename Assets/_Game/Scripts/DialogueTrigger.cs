@@ -7,6 +7,8 @@ public class DialogueTrigger : MonoBehaviour
 
     public GameObject _player;
 
+    public Dialogue _localDialogue;
+
     public void OnTriggerEnter(Collider other)
     {
 
@@ -14,11 +16,9 @@ public class DialogueTrigger : MonoBehaviour
 
         DialogueController dialogueController = other.gameObject.GetComponent<DialogueController>();
 
-        Dialogue dialogue = other.gameObject.GetComponent<Dialogue>();
-
         if (_player != null)
         {
-            dialogueController.StartDialogue(Dialogue dialogue);
+            dialogueController.StartDialogue(_localDialogue);
         }
 
     }
